@@ -1,0 +1,785 @@
+/* Design Moderno e Responsivo para Histórico de Vendas */
+.historico-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.historico-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 40px rgba(72, 187, 120, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.historico-header-content h1 {
+    margin: 0;
+    color: #2D3748;
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #22543D, #2D3748);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.historico-header-content p {
+    margin: 12px 0 0 0;
+    color: #718096;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.historico-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.historico-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(72, 187, 120, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.historico-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(72, 187, 120, 0.4);
+}
+
+.historico-stat-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.historico-stat-info h3 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.historico-stat-info span {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+.historico-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 20px 40px rgba(72, 187, 120, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.historico-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(72, 187, 120, 0.2);
+}
+
+.historico-card h2 {
+    margin: 0 0 25px 0;
+    color: #2D3748;
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Filtros */
+.filtros-container {
+    margin-bottom: 0;
+}
+
+.filtros-container h3 {
+    margin: 0 0 20px 0;
+    color: #2D3748;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 20px;
+    align-items: end;
+}
+
+.historico-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.historico-form-group label {
+    font-weight: 700;
+    color: #4A5568;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.historico-form-group input,
+.historico-form-group select {
+    padding: 16px 20px;
+    border: 2px solid #E2E8F0;
+    border-radius: 16px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    font-family: inherit;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.historico-form-group input:focus,
+.historico-form-group select:focus {
+    outline: none;
+    border-color: #48bb78;
+    box-shadow: 0 0 0 4px rgba(72, 187, 120, 0.1);
+    background: #F0FFF4;
+    transform: translateY(-1px);
+}
+
+.filtro-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.historico-btn-primary {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+    white-space: nowrap;
+}
+
+.historico-btn-primary:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
+}
+
+.historico-btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.historico-btn-secondary {
+    background: #F7FAFC;
+    color: #4A5568;
+    border: 2px solid #E2E8F0;
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.historico-btn-secondary:hover {
+    background: #EDF2F7;
+    border-color: #CBD5E0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Tabela de Vendas */
+.historico-table-container {
+    overflow-x: auto;
+    margin-top: 10px;
+    border-radius: 16px;
+}
+
+.historico-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(72, 187, 120, 0.1);
+    min-width: 800px;
+}
+
+.historico-table th {
+    background: linear-gradient(135deg, #F0FFF4, #C6F6D5);
+    padding: 20px;
+    text-align: left;
+    font-weight: 700;
+    color: #2D3748;
+    border-bottom: 3px solid #48bb78;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.historico-table td {
+    padding: 20px;
+    border-bottom: 1px solid #F0FFF4;
+    font-size: 0.95rem;
+    vertical-align: top;
+}
+
+/* Estilos específicos para células */
+.venda-data {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.venda-data-hora {
+    font-weight: 700;
+    color: #2D3748;
+    font-size: 0.95rem;
+}
+
+.venda-data-curta {
+    color: #718096;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #F7FAFC;
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.venda-cliente,
+.venda-produto {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cliente-nome,
+.produto-nome {
+    font-weight: 700;
+    color: #2D3748;
+    font-size: 1rem;
+}
+
+.cliente-id {
+    color: #718096;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.produto-preco {
+    color: #718096;
+    font-size: 0.85rem;
+    background: #F7FAFC;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.quantidade-cell {
+    text-align: center;
+}
+
+.quantidade-badge {
+    background: #BEE3F8;
+    color: #2B6CB0;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-block;
+    min-width: 50px;
+}
+
+.valor-cell {
+    text-align: center;
+}
+
+.venda-valor {
+    font-weight: 800;
+    color: #2D3748;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.venda-pagamento {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #FAF5FF;
+    border-radius: 10px;
+    border-left: 4px solid #9F7AEA;
+}
+
+.pagamento-icone {
+    font-size: 1.2rem;
+}
+
+.pagamento-tipo {
+    font-weight: 600;
+    color: #2D3748;
+    font-size: 0.9rem;
+}
+
+/* Status das Vendas */
+.status-badge {
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.status-hoje {
+    background: #C6F6D5;
+    color: #22543D;
+    border: 2px solid #9AE6B4;
+}
+
+.status-recente {
+    background: #FEFCBF;
+    color: #744210;
+    border: 2px solid #FAF089;
+}
+
+.status-antiga {
+    background: #FED7D7;
+    color: #C53030;
+    border: 2px solid #FEB2B2;
+}
+
+/* Linhas da tabela com cores suaves */
+.venda-hoje {
+    background: #F0FFF4 !important;
+    border-left: 4px solid #48bb78;
+}
+
+.venda-recente {
+    background: #FFFAF0 !important;
+    border-left: 4px solid #ED8936;
+}
+
+.venda-antiga {
+    background: #FFF5F5 !important;
+    border-left: 4px solid #FC8181;
+}
+
+/* Resumo */
+.resumo-vendas {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding: 20px 25px;
+    background: #F0FFF4;
+    border-radius: 16px;
+    border: 2px solid #C6F6D5;
+}
+
+.resumo-item {
+    font-weight: 700;
+    color: #2D3748;
+    font-size: 1.1rem;
+}
+
+.resumo-item strong {
+    color: #22543D;
+    margin-left: 8px;
+}
+
+.historico-no-data {
+    text-align: center;
+    padding: 60px 40px;
+    color: #A0AEC0;
+    font-style: italic;
+    font-size: 1.2rem;
+    background: #F7FAFC;
+    border-radius: 20px;
+    border: 2px dashed #E2E8F0;
+    margin: 20px 0;
+}
+
+/* RESPONSIVIDADE */
+
+/* Tablets e Laptops Pequenos (1024px) */
+@media (max-width: 1024px) {
+    .historico-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 25px;
+    }
+    
+    .historico-stats {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+    }
+    
+    .historico-card {
+        padding: 30px;
+    }
+    
+    .filtros-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .filtro-actions {
+        justify-content: stretch;
+    }
+    
+    .historico-btn-primary,
+    .historico-btn-secondary {
+        flex: 1;
+    }
+    
+    .historico-table {
+        min-width: 700px;
+    }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+    .historico-container {
+        padding: 15px;
+    }
+    
+    .historico-header {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+    
+    .historico-header-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .historico-header-content p {
+        font-size: 1.1rem;
+    }
+    
+    .historico-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .historico-stat-card {
+        padding: 20px;
+    }
+    
+    .historico-stat-icon {
+        font-size: 2rem;
+    }
+    
+    .historico-stat-info h3 {
+        font-size: 1.8rem;
+    }
+    
+    .historico-card {
+        padding: 25px;
+        border-radius: 20px;
+    }
+    
+    .historico-card h2 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+    
+    .filtros-container h3 {
+        font-size: 1.2rem;
+    }
+    
+    .historico-form-group input,
+    .historico-form-group select {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+    
+    .filtro-actions {
+        flex-direction: column;
+    }
+    
+    .historico-btn-primary,
+    .historico-btn-secondary {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .historico-table {
+        font-size: 0.85rem;
+        min-width: 600px;
+    }
+    
+    .historico-table th,
+    .historico-table td {
+        padding: 15px;
+    }
+    
+    .venda-data-hora {
+        font-size: 0.9rem;
+    }
+    
+    .cliente-nome,
+    .produto-nome {
+        font-size: 0.95rem;
+    }
+    
+    .resumo-vendas {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px 20px;
+    }
+}
+
+/* Mobile Large (480px) */
+@media (max-width: 480px) {
+    .historico-container {
+        padding: 10px;
+    }
+    
+    .historico-header {
+        padding: 20px 15px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .historico-header-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .historico-header-content p {
+        font-size: 1rem;
+    }
+    
+    .historico-stat-card {
+        padding: 15px;
+        border-radius: 16px;
+    }
+    
+    .historico-stat-icon {
+        font-size: 1.8rem;
+    }
+    
+    .historico-stat-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .historico-stat-info span {
+        font-size: 0.9rem;
+    }
+    
+    .historico-card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+    
+    .historico-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .filtros-container h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .historico-form-group {
+        gap: 8px;
+    }
+    
+    .historico-form-group label {
+        font-size: 0.9rem;
+    }
+    
+    .historico-form-group input,
+    .historico-form-group select {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border-radius: 12px;
+    }
+    
+    .historico-btn-primary,
+    .historico-btn-secondary {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+        border-radius: 12px;
+    }
+    
+    .historico-table-container {
+        margin: 0 -10px;
+        border-radius: 0;
+    }
+    
+    .historico-table {
+        min-width: 550px;
+        font-size: 0.8rem;
+        border-radius: 0;
+    }
+    
+    .historico-table th,
+    .historico-table td {
+        padding: 12px 10px;
+    }
+    
+    .venda-data,
+    .venda-cliente,
+    .venda-produto {
+        min-width: 120px;
+    }
+    
+    .venda-data-hora {
+        font-size: 0.85rem;
+    }
+    
+    .cliente-nome,
+    .produto-nome {
+        font-size: 0.9rem;
+    }
+    
+    .quantidade-badge {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        min-width: 40px;
+    }
+    
+    .venda-valor {
+        font-size: 1rem;
+    }
+    
+    .venda-pagamento {
+        padding: 8px 10px;
+        gap: 6px;
+    }
+    
+    .pagamento-tipo {
+        font-size: 0.8rem;
+    }
+    
+    .status-badge {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        min-width: 70px;
+    }
+    
+    .resumo-item {
+        font-size: 1rem;
+    }
+    
+    .historico-no-data {
+        padding: 40px 20px;
+        font-size: 1rem;
+        border-radius: 16px;
+        margin: 15px 0;
+    }
+}
+
+/* Mobile Small (360px) */
+@media (max-width: 360px) {
+    .historico-container {
+        padding: 5px;
+    }
+    
+    .historico-header {
+        padding: 15px 10px;
+        margin-bottom: 15px;
+    }
+    
+    .historico-header-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .historico-card {
+        padding: 15px;
+    }
+    
+    .historico-table {
+        min-width: 500px;
+        font-size: 0.75rem;
+    }
+    
+    .historico-table th,
+    .historico-table td {
+        padding: 10px 8px;
+    }
+    
+    .historico-form-group input,
+    .historico-form-group select {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .historico-btn-primary,
+    .historico-btn-secondary {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Estilos para orientação landscape em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .historico-container {
+        padding: 10px;
+    }
+    
+    .historico-header {
+        padding: 15px 20px;
+        margin-bottom: 15px;
+    }
+    
+    .historico-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .historico-stat-card {
+        padding: 15px;
+    }
+    
+    .historico-card {
+        padding: 20px;
+    }
+}
+
+/* Ajustes para telas muito grandes */
+@media (min-width: 1440px) {
+    .historico-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}

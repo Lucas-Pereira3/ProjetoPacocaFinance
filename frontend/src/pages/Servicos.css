@@ -1,0 +1,488 @@
+.servicos-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FFD54F 0%, #FFB74D 100%);
+    padding: 20px;
+}
+
+.servicos-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(255, 152, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header-content h1 {
+    margin: 0;
+    color: #5D4037;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.header-content p {
+    margin: 10px 0 0 0;
+    color: #795548;
+    font-size: 1.1rem;
+}
+
+.header-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #FFB74D, #FF9800);
+    border-radius: 15px;
+    color: white;
+    min-width: 200px;
+}
+
+.stat-icon {
+    font-size: 2rem;
+}
+
+.stat-info h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.stat-info span {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.servicos-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.form-section {
+    grid-column: 1;
+}
+
+.chart-section {
+    grid-column: 2;
+}
+
+.table-section {
+    grid-column: 1 / -1;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(255, 152, 0, 0.1);
+    border: 1px solid rgba(255, 183, 77, 0.3);
+}
+
+.card h2 {
+    margin: 0 0 25px 0;
+    color: #5D4037;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.modern-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #6D4C41;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    padding: 12px 16px;
+    border: 2px solid #FFCCBC;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #FFB74D;
+    box-shadow: 0 0 0 3px rgba(255, 183, 77, 0.2);
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #FFB74D, #FF9800);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #FFE0B2;
+    color: #E65100;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #FFCC80;
+}
+
+/* Gráfico */
+.chart-container {
+    margin-top: 20px;
+}
+
+.percentage-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.chart-bar {
+    flex: 1;
+    background: #FFF3E0;
+    border-radius: 10px;
+    overflow: visible;
+    height: 40px;
+    position: relative;
+    min-width: 100px;
+}
+
+.chart-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    position: relative;
+    min-width: fit-content;
+}
+
+.chart-label {
+    color: white;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+    white-space: nowrap;
+    padding: 2px 4px;
+    border-radius: 4px;
+    backdrop-filter: blur(2px);
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow: visible;
+}
+
+/* Garantir que o texto sempre apareça mesmo em barras pequenas */
+.chart-fill {
+    min-width: max-content !important;
+}
+
+.chart-bar {
+    overflow: visible !important;
+}
+
+.chart-value {
+    min-width: 90px;
+    text-align: right;
+    font-weight: 600;
+    color: #5D4037;
+    font-size: 0.9rem;
+}
+
+/* Tabela */
+.table-container {
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(255, 152, 0, 0.1);
+}
+
+.modern-table th {
+    background: #FFF3E0;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 600;
+    color: #5D4037;
+    border-bottom: 2px solid #FFE0B2;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modern-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #FFF3E0;
+    font-size: 0.95rem;
+}
+
+.servico-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    color: #5D4037;
+}
+
+.color-badge {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.valor-cell {
+    font-weight: 600;
+    color: #5D4037;
+}
+
+.percentage-cell {
+    text-align: center;
+}
+
+.percentage-badge {
+    background: #FFECB3;
+    color: #E65100;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 60px;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-edit, .btn-delete {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.btn-edit {
+    background: #FFE0B2;
+    color: #E65100;
+}
+
+.btn-edit:hover {
+    background: #FFCC80;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(255, 152, 0, 0.2);
+}
+
+.btn-delete {
+    background: #FFCCBC;
+    color: #D84315;
+}
+
+.btn-delete:hover {
+    background: #FFAB91;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(255, 152, 0, 0.2);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #BCAAA4;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+    .servicos-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-section {
+        grid-column: 1;
+    }
+    
+    .servicos-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .header-stats {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .servicos-container {
+        padding: 10px;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .header-stats {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .stat-card {
+        min-width: auto;
+        width: 90%;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .chart-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    
+    .chart-value {
+        text-align: left;
+        min-width: auto;
+        font-size: 0.85rem;
+    }
+    
+    .chart-label {
+        font-size: 0.7rem;
+        padding: 1px 3px;
+    }
+    
+    .modern-table {
+        font-size: 0.8rem;
+    }
+    
+    .modern-table th,
+    .modern-table td {
+        padding: 10px 12px;
+    }
+    
+    .servico-name {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    .actions-cell {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .btn-edit, .btn-delete {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .header-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .servicos-container {
+        padding: 5px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    .servicos-header {
+        padding: 20px;
+    }
+    
+    .stat-card {
+        padding: 15px;
+    }
+    
+    .stat-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .modern-table {
+        font-size: 0.75rem;
+    }
+    
+    .modern-table th,
+    .modern-table td {
+        padding: 8px 10px;
+    }
+    
+    .percentage-badge {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+        min-width: 50px;
+    }
+}

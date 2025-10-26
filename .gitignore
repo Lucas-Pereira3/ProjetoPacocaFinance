@@ -1,0 +1,102 @@
+# =============== #
+# General ignores #
+# =============== #
+
+# OS specific files (macOS, Windows)
+.DS_Store
+Thumbs.db
+
+# IDE specific folders (VSCode, PyCharm, etc.)
+.idea/
+.vscode/
+# Se você quiser compartilhar configurações específicas do VSCode, descomente as linhas abaixo
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+*.sublime-project
+*.sublime-workspace
+
+# Log files
+*.log
+
+
+# =============== #
+# Backend (Python/Django) #
+# =============== #
+
+# Virtual environment folder - ESSENCIAL IGNORAR
+**/backend/.venv/
+**/backend/env/
+**/backend/venv/
+
+# Python cache files
+**/backend/__pycache__/
+**/backend/*.py[cod]
+
+# Django SQLite database (geralmente ignorado em desenvolvimento)
+**/backend/db.sqlite3
+**/backend/db.sqlite3-journal
+
+# Pasta de arquivos estáticos coletados (se usar collectstatic)
+# Ajuste 'staticfiles' se seu STATIC_ROOT for diferente
+**/backend/staticfiles/
+
+# Pasta de arquivos de mídia (uploads de usuários)
+# Ajuste 'media' se seu MEDIA_ROOT for diferente
+**/backend/media/
+
+# Arquivos de segredos (NÃO ENVIE PARA O GITHUB)
+**/backend/.env
+**/backend/.env.*
+# Mantenha um arquivo de exemplo se tiver um
+!**/backend/.env.example
+# Se você usar um arquivo local_settings.py para segredos
+**/backend/local_settings.py
+
+# Relatórios de cobertura de testes
+**/backend/.coverage
+**/backend/htmlcov/
+
+
+# =============== #
+# Frontend (React/Node) #
+# =============== #
+
+# Pasta de dependências - ESSENCIAL IGNORAR
+**/frontend/node_modules/
+
+# Pasta de build de produção
+**/frontend/build/
+
+# Logs do npm/yarn
+**/frontend/npm-debug.log*
+**/frontend/yarn-debug.log*
+**/frontend/yarn-error.log*
+**/frontend/.pnpm-debug.log*
+
+# Arquivos de segredos (NÃO ENVIE PARA O GITHUB)
+**/frontend/.env.local
+**/frontend/.env.development.local
+**/frontend/.env.test.local
+**/frontend/.env.production.local
+# Mantenha um arquivo de exemplo se tiver um
+!**/frontend/.env.example
+
+# Relatórios de cobertura de testes
+**/frontend/coverage/
+
+# Caches de ferramentas
+**/frontend/.eslintcache
+**/frontend/.stylelintcache
+**/frontend/.parcel-cache
+# Adicione outros caches específicos se usar (ex: .next/, .nuxt/)
+
+
+# =============== #
+# Arquivos adicionais que podem surgir #
+# =============== #
+# Arquivos temporários do editor
+*~
+*.swp
+*.bak
