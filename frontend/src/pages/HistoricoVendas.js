@@ -56,11 +56,21 @@ function HistoricoVendas() {
     };
 
     // Filtrar vendas
-    const vendasFiltradas = vendas.filter(venda => {
-        const matchesData = !filtroData || formatarDataCurta(venda.data_venda).includes(filtroData);
-        const matchesPagamento = !filtroPagamento || venda.forma_pagamento === filtroPagamento;
-        return matchesData && matchesPagamento;
-    });
+   const vendasFiltradas = vendas.filter(venda => {
+    let matchesData = true;
+    let matchesPagamento = true;
+
+    if (filtroData) {
+        const dataVenda = new Date(venda.data_venda).toISOString().slice(0, 10); // yyyy-mm-dd
+        matchesData = dataVenda === filtroData;
+    }
+
+    if (filtroPagamento) {
+    matchesPagamento = venda.forma_pagamento?.toLowerCase() === filtroPagamento.toLowerCase();
+    }
+
+    return matchesData && matchesPagamento;
+});
 
     // Calcular estatísticas
     const totalVendas = vendasFiltradas.length;

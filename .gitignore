@@ -9,11 +9,6 @@ Thumbs.db
 # IDE specific folders (VSCode, PyCharm, etc.)
 .idea/
 .vscode/
-# Se você quiser compartilhar configurações específicas do VSCode, descomente as linhas abaixo
-# !.vscode/settings.json
-# !.vscode/tasks.json
-# !.vscode/launch.json
-# !.vscode/extensions.json
 *.sublime-project
 *.sublime-workspace
 
@@ -49,10 +44,6 @@ Thumbs.db
 # Arquivos de segredos (NÃO ENVIE PARA O GITHUB)
 **/backend/.env
 **/backend/.env.*
-# Mantenha um arquivo de exemplo se tiver um
-!**/backend/.env.example
-# Se você usar um arquivo local_settings.py para segredos
-**/backend/local_settings.py
 
 # Relatórios de cobertura de testes
 **/backend/.coverage
@@ -63,7 +54,7 @@ Thumbs.db
 # Frontend (React/Node) #
 # =============== #
 
-# Pasta de dependências - ESSENCIAL IGNORAR
+# Pasta de dependências
 **/frontend/node_modules/
 
 # Pasta de build de produção
