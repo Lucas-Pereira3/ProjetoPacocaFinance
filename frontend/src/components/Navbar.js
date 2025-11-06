@@ -16,7 +16,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <NavLink to="/" onClick={closeMenu}>🥜 PacoçaFinance</NavLink>
+        <NavLink to="/" onClick={closeMenu}>🥜 PaçocaFinance</NavLink>
       </div>
       
       <div 
